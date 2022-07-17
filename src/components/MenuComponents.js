@@ -22,10 +22,8 @@ class Menu extends Component {
     if (dish != null) {
       return (
         <Card>
-          <CardImg width="100%" src={dish.image} alt={dish.name} />
           <CardBody>
-            <CardTitle>{dish.name}</CardTitle>
-            <CardText>{dish.name}</CardText>
+            <CardText>Họ và tên:{dish.name}</CardText>
           </CardBody>
         </Card>
       );
@@ -38,11 +36,7 @@ class Menu extends Component {
       return (
         <div key={dish.id} className="col-12 col-md-5 m-1">
           <Card onClick={() => this.onDishSelect(dish)}>
-            <CardImg width="100%" src={dish.image} alt={dish.name} />
-
-            <CardImgOverlay>
-              <CardTitle>{dish.name}</CardTitle>
-            </CardImgOverlay>
+            <CardTitle>{dish.name}</CardTitle>
           </Card>
         </div>
       );
