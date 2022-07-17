@@ -6,6 +6,7 @@ import {
   CardText,
   CardBody,
   CardTitle,
+  Button,
 } from "reactstrap";
 import dateFormat, { masks } from "dateformat";
 
@@ -14,10 +15,14 @@ class Menu extends Component {
     super(props);
     this.state = {
       selectedDish: null,
+      columDefault: "col-12 col-md-5 m-1",
     };
   }
   onDishSelect(dish) {
     this.setState({ selectedDish: dish });
+  }
+  onDishSelectcolum(dish) {
+    this.setState({ columDefault: dish });
   }
   renderDish(dish) {
     if (dish != null) {
@@ -32,7 +37,7 @@ class Menu extends Component {
             <CardText>
               Ngày vào công ty: {dateFormat(dish.startDate, "dd/mm/yyyy")}
             </CardText>
-            <CardText>Phòng ban: {dish.department}</CardText>
+            <CardText>Phòng ban: {dish.department.name}</CardText>
             <CardText>Số ngày nghĩ còn lại: {dish.annualLeave}</CardText>
             <CardText>Số ngày làm thêm: {dish.overTime}</CardText>
           </CardBody>
@@ -42,18 +47,59 @@ class Menu extends Component {
       return <div></div>;
     }
   }
+  renderDish2(dish) {
+    if (dish != null) {
+      return (
+        <Card>
+          <CardImg width="100%" src={dish.image} alt={dish.name} />
+
+          <CardText>
+            <h3>Họ và tên:{dish.name}</h3>
+          </CardText>
+        </Card>
+      );
+    } else {
+      return <div></div>;
+    }
+  }
   render() {
     const menu = this.props.dishes.map((dish) => {
       return (
-        <div key={dish.id} className="col-12 col-md-5 m-1">
+        <div key={dish.id} className={this.state.columDefault}>
           <Card onClick={() => this.onDishSelect(dish)}>
             <CardTitle>{dish.name}</CardTitle>
           </Card>
         </div>
       );
     });
+
     return (
       <div className="container">
+        <Button
+          onClick={() => this.onDishSelectcolum("col-12 col-md-12 mt-1")}
+          className="col-12 col-md-1 m-1"
+        >
+          1 Cột
+        </Button>
+        <Button
+          onClick={() => this.onDishSelectcolum("col-12 col-md-6 mt-1")}
+          className="col-12 col-md-1 m-1"
+        >
+          2 Cột
+        </Button>
+        <Button
+          onClick={() => this.onDishSelectcolum("col-12 col-md-4 mt-1")}
+          className="col-12 col-md-1 m-1"
+        >
+          3 Cột
+        </Button>
+        <Button
+          onClick={() => this.onDishSelectcolum("col-12 col-md-2 mt-1")}
+          className="col-12 col-md-1 m-1"
+        >
+          6 Cột
+        </Button>
+
         <div className="row">{menu}</div>
         <div className="row">{this.renderDish(this.state.selectedDish)}</div>
       </div>
