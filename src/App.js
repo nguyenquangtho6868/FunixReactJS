@@ -3,11 +3,12 @@ import { Badge, Navbar, NavbarBrand } from "reactstrap";
 import Menu from "./components/MenuComponents";
 import "./App.css";
 import { DISHES } from "./shered/dishes";
+import { STAFFS } from "./shered/staffs";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dishes: DISHES,
+      dishes: STAFFS,
     };
   }
   render() {
