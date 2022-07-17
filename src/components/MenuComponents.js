@@ -7,6 +7,7 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
+import dateFormat, { masks } from "dateformat";
 
 class Menu extends Component {
   constructor(props) {
@@ -26,9 +27,11 @@ class Menu extends Component {
             <CardText>
               <h3>Họ và tên:{dish.name}</h3>
             </CardText>
-            <CardText></CardText>
-            <CardText></CardText>
-            <CardText>Phòng ban{dish.}</CardText>
+            <CardText>Ngày sinh: {dateFormat(dish.doB, "m/d/yy")}</CardText>
+            <CardText>
+              Ngày vào công ty: {dateFormat(dish.startDate, "m/d/yy")}
+            </CardText>
+            <CardText>Phòng ban: {dish.department}</CardText>
             <CardText></CardText>
             <CardText></CardText>
           </CardBody>
