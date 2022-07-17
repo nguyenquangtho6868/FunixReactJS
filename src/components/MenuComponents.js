@@ -23,7 +23,9 @@ class Menu extends Component {
       return (
         <Card>
           <CardBody>
-            <CardText>Họ và tên:{dish.name}</CardText>
+            <CardText>
+              <h3>Họ và tên:{dish.name}</h3>
+            </CardText>
           </CardBody>
         </Card>
       );
