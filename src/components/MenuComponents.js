@@ -23,17 +23,18 @@ class Menu extends Component {
     if (dish != null) {
       return (
         <Card>
+          <CardImg width="100%" src={dish.image} alt={dish.name} />
           <CardBody>
             <CardText>
               <h3>Họ và tên:{dish.name}</h3>
             </CardText>
-            <CardText>Ngày sinh: {dateFormat(dish.doB, "m/d/yy")}</CardText>
+            <CardText>Ngày sinh: {dateFormat(dish.doB, "dd/mm/yyyy")}</CardText>
             <CardText>
-              Ngày vào công ty: {dateFormat(dish.startDate, "m/d/yy")}
+              Ngày vào công ty: {dateFormat(dish.startDate, "dd/mm/yyyy")}
             </CardText>
             <CardText>Phòng ban: {dish.department}</CardText>
-            <CardText></CardText>
-            <CardText></CardText>
+            <CardText>Số ngày nghĩ còn lại: {dish.annualLeave}</CardText>
+            <CardText>Số ngày làm thêm: {dish.overTime}</CardText>
           </CardBody>
         </Card>
       );
