@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Badge, Navbar, NavbarBrand, Button } from "reactstrap";
-import Menu from "./components/MenuComponents";
+import Menu from "./components/StaffListComponent";
 import "./App.css";
-import { DISHES } from "./shered/dishes";
+
 import { STAFFS } from "./shered/staffs";
-import { COLUM } from "./shered/dishes";
 
 class App extends Component {
   constructor(props) {
@@ -16,14 +15,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App ">
         <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Ứng dụng quản lý nhân sự v1.0</NavbarBrand>
-          </div>
+          <NavbarBrand>
+            <div className="container">Ứng dụng quản lý nhân sự v1.0</div>
+          </NavbarBrand>
         </Navbar>
 
-        <Menu dishes={this.state.dishes} />
+        <Menu dark color="primary" dishes={this.state.dishes} />
       </div>
     );
   }
