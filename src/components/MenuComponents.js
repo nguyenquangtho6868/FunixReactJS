@@ -26,6 +26,11 @@ class Menu extends Component {
             <CardText>
               <h3>Họ và tên:{dish.name}</h3>
             </CardText>
+            <CardText></CardText>
+            <CardText></CardText>
+            <CardText>Phòng ban{dish.}</CardText>
+            <CardText></CardText>
+            <CardText></CardText>
           </CardBody>
         </Card>
       );
